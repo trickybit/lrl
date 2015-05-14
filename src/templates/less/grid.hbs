@@ -1,0 +1,33 @@
+{{#each grid.contents}}@grid-count-{{this.count}}-length: {{this.length}};
+{{/each}}
+.grid {
+{{#each grid.contents}}
+  .count-{{this.count}} {
+    @ratio: @grid-count-{{this.count}}-length * 1 / {{this.count}};
+    {{#times this.count}}
+    .span-{{@count}}{{#is @count ../count}},
+    .span-all{{/is}} {
+      @len: @ratio * {{@count}};
+
+      .width; //default
+
+      .basis {
+        flex-basis: @len;
+      }
+
+      .width {
+        width: @len;
+      }
+
+      .margin {
+        .left; .right;//default
+        .left {
+          margin-left: @len;
+        }
+        .right {
+          margin-right: @len;
+        }
+      }
+    }{{/times}}
+  }{{/each}}
+}
