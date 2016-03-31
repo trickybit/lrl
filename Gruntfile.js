@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   'use strict';
 
   require('load-grunt-tasks')(grunt);
@@ -23,17 +23,17 @@ module.exports = function(grunt) {
           ext: '.less'
         },
         src: ['<%=conf.src%>/templates/less/*.hbs'],
-        dest: '<%=conf.temp%>/less/lrl/'
+        dest: '<%=conf.build%>/'
       }
     },
     copy: {
-      temp: {
+      build: {
         files: [
           {
             expand: true,
-            cwd: '<%=conf.src%>/less',
+            cwd: '<%=conf.src%>/less/<%=pkg.name%>',
             src: ['**/*.less'],
-            dest: '<%=conf.temp%>/less/',
+            dest: '<%=conf.build%>',
             filter: 'isFile'
           }
         ]
@@ -42,10 +42,20 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%=conf.temp%>/less/lrl',
-            src: ['*.less'],
-            dest: '<%=conf.dist%>/less/lrl/',
+            cwd: '<%=conf.build%>',
+            src: ['**'],
+            dest: '<%=conf.dist%>/dev',
             filter: 'isFile'
+          }
+        ]
+      },
+      release: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/dev/',
+            src: ['*'],
+            dest: 'dist/<%=pkg.version%>/'
           }
         ]
       }
@@ -68,7 +78,7 @@ module.exports = function(grunt) {
           ]
         },
         files: {
-          '<%=conf.dist%>/css/test.css': '<%=conf.temp%>/less/test.less'
+          '<%=conf.build%>/test/results.css': '<%=conf.src%>/less/test.less'
         }
       }
     },
@@ -89,5 +99,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', []);
   grunt.registerTask('test', ['jshint']);
-  grunt.registerTask('build', ['clean', 'test', 'copy:temp', 'assemble', 'less:test', 'copy:dist']);
+  grunt.registerTask('build', ['clean', 'test', 'copy:build', 'assemble', 'less:test']);
+  grunt.registerTask('dist', ['build', 'copy:dist']);
+  grunt.registerTask('dist:release', ['dist', 'release', 'copy:release']);
 };

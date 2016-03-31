@@ -1,3 +1,4 @@
 dist: "dist"
 src: "src"
 temp: "tmp"
+build: "tmp/build"
