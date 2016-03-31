@@ -2,32 +2,34 @@
 {{/each}}
 .grid {
 {{#each grid.contents}}
-  .count-{{this.count}} {
+    .count-{{this.count}} {
     @ratio: @grid-count-{{this.count}}-length * 1 / {{this.count}};
-    {{#times this.count}}
-    .span-{{@count}}{{#is @count ../count}},
-    .span-all{{/is}} {
-      @len: @ratio * {{@count}};
+    {{#each (arrayed this.count)}}
+        .span-{{add @index 1}}{{#is (add @index 1) ../count}},
+        .span-all{{/is}} {
+        @len: @ratio * {{add @index 1}};
 
-      .width; //default
+        .width; //default
 
-      .basis {
+        .basis {
         flex-basis: @len;
-      }
+        }
 
-      .width {
+        .width {
         width: @len;
-      }
+        }
 
-      .margin {
+        .margin {
         .left; .right;//default
         .left {
-          margin-left: @len;
+        margin-left: @len;
         }
         .right {
-          margin-right: @len;
+        margin-right: @len;
         }
-      }
-    }{{/times}}
-  }{{/each}}
+        }
+        }
+    {{/each}}
+    }
+{{/each}}
 }

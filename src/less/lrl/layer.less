@@ -1,0 +1,77 @@
+.layer {
+
+  //default
+  .fix;
+  .align;
+
+  .abs {
+    position: absolute;
+  }
+
+  .fix {
+    position: fixed;
+  }
+
+  .align {
+
+    //default
+    .stretch;
+
+    .top {
+      top: 0;
+      bottom: auto;
+    }
+
+    .right {
+      left: auto;
+      right: 0;
+    }
+
+    .bottom {
+      top: auto;
+      bottom: 0;
+    }
+
+    .left {
+      left: 0;
+      right: auto;
+    }
+
+    .center {
+
+      //default
+      .x;
+      .y;
+
+      .x {
+        left: 50%;
+        transform+_: translateX(-50%);
+      }
+
+      .y {
+        top: 50%;
+        transform+_: translateY(-50%);
+      }
+
+    }
+
+    .stretch {
+
+      //default
+      .x;
+      .y;
+
+      .x {
+        left: 0;
+        right: 0;
+      }
+
+      .y {
+        top: 0;
+        bottom: 0;
+      }
+
+    }
+
+  }
+}

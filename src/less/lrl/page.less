@@ -1,0 +1,122 @@
+@page-gutters: 4vh 6vw 4vh 6vw;
+
+.page {
+  .gutter;
+  .a0;
+
+  .gutter {
+
+    .x;
+    .y;
+
+    .x {
+      .left;
+      .right;
+    }
+    .y {
+      .top;
+      .bottom;
+    }
+    .top {
+      .margin; //default
+
+      .margin {
+        margin-top: extract(@page-gutters, 1);
+
+        .negate {
+          margin-top: extract(@page-gutters, 1) * -1;
+        }
+      }
+      .padding {
+        padding-top: extract(@page-gutters, 1);
+      }
+    }
+    .right {
+      .margin; //default
+
+      .margin {
+        margin-right: extract(@page-gutters, 2);
+
+        .negate {
+          margin-right: extract(@page-gutters, 2) * -1;
+        }
+      }
+      .padding {
+        padding-right: extract(@page-gutters, 2);
+      }
+    }
+    .bottom {
+      .margin; //default
+
+      .margin {
+        margin-bottom: extract(@page-gutters, 3);
+
+        .negate {
+          margin-bottom: extract(@page-gutters, 3) * -1;
+        }
+      }
+      .padding {
+        padding-bottom: extract(@page-gutters, 3);
+      }
+    }
+    .left {
+      .margin; //default
+
+      .margin {
+        margin-left: extract(@page-gutters, 4);
+
+        .negate {
+          margin-left: extract(@page-gutters, 4) * -1;
+        }
+      }
+      .padding {
+        padding-left: extract(@page-gutters, 4);
+      }
+    }
+  }
+  .a0 {
+    box-sizing: border-box;
+    width: 100vw;
+    min-height: 100vh;
+  }
+  .a1 {
+    box-sizing: border-box;
+    width: 50vh;
+    min-height: 100vw;
+  }
+  .a2 {
+    box-sizing: border-box;
+    width: 50vw;
+    min-height: 50vh;
+  }
+  .a3 {
+    box-sizing: border-box;
+    width: 25vh;
+    min-height: 50vw;
+  }
+  .a4 {
+    box-sizing: border-box;
+    width: 25vw;
+    min-height: 25vh;
+  }
+  .a5 {
+    box-sizing: border-box;
+    width: 12.5vh;
+    min-height: 25vw;
+  }
+  .a6 {
+    box-sizing: border-box;
+    width: 12.5vw;
+    min-height: 12.5vh;
+  }
+  .a7 {
+    box-sizing: border-box;
+    width: 6.25vw;
+    min-height: 12.5vh;
+  }
+  .a8 {
+    box-sizing: border-box;
+    width: 6.25vw;
+    min-height: 6.25vw;
+  }
+}
