@@ -1,10 +1,10 @@
-#LESS reference library
+# LESS reference library
 Keep your CSS library healthy.
 
-###Problem
+## Problem
 Perfectly realized naming systems become contradictory and bloated quickly. Confused collaborators, decide they can do it better/newer with their own perfectly realized system. A year later, repeat the same. How about let's define the underlaying patterns we use again and again and not export them to a naming system. Now we can decide to implement these patterns with a 100% semantic system or a super-detailed BEM system. Consistency is maintained under-the-hood and out of the weather. And next year, when we decide to change everything on the outside, the engine is still there, tuned up and ready to go.
 
-##Usage
+## Usage
 
 In
 ```
@@ -38,7 +38,7 @@ dialog {
 }
 ```
 
-##flex
+## flex
 - flex
   - align
     - baseline
